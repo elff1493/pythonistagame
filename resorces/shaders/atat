@@ -1,0 +1,66 @@
+#ifdef GL_ES
+precision mediump float;
+#endif
+
+//#extension GL_OES_standard_derivatives : enable
+
+//uniform float time;
+//uniform vec2 mouse;
+//uniform vec2 resolution;
+uniform sampler2D u_texture;
+//uniform sampler2D map;
+uniform sampler2D data;
+uniform vec2 u_sprite_size;
+varying vec2 v_tex_coord;
+void main( void ) {
+
+	//vec2 position = ( v_tex_coord.xy / resolution.xy ) + mouse / 4.0;
+	//float i = floor(texture2D(data, v_tex_coord.xy).r * 255.0);
+    //vec2 offset = vec2(mod(i, 16.0), floor(i/16.0));
+    vec2 offset = vec2((texture2D(data, v_tex_coord.xy).r * 255.0), (texture2D(data, v_tex_coord.xy).g * 255.0));
+
+	gl_FragColor = texture2D(u_texture, offset + mod(v_tex_coord.xy, vec2(16,16)));//texture2D(u_texture, vec2(1.0,1.0) - (v_tex_coord.xy / u_sprite_size.xy));
+
+}
+
+#version 100
+//unsupported though, isn't it? #extension GL_EXT_gpu_shader4 : enable
+precision mediump float;
+// for a 1600x900 screen, this results in an image of 50x100 with each pixel representing a tile
+//uniform sampler2D tilemap_pixels;
+
+// a runtime generated spritesheet of all tiles we know, each tile being 16x16 (so 48x16 if there are 3 tile types)
+//uniform sampler2D tile_types_super_texture;
+
+// offset (remainder of view coordinates versus tile size). to achieve per-pixel smooth scrolling
+//uniform lowp vec2 offset;
+vec2 offset = vec2(0,0);
+
+//FIXME: stop hardcoding ..
+ivec2 TILE_SIZE = ivec2(16, 16);
+
+
+uniform vec2 u_sprite_size;
+varying vec2 v_tex_coord;
+uniform sampler2D data;
+uniform sampler2D u_texture;
+uniform sampler2D map;
+
+void main()
+{
+    //ivec2 tilemap_size = u_sprite_size;
+
+    ivec2 screen_coordinates = ivec2(int(v_tex_coord.x) + int (offset.x), int(v_tex_coord.y) - int (offset.y));
+
+    // find the pixel (RGBA) values in the tilemap pixel representation that is what we're
+    // currently interested in.
+    vec4 currentPixel = texelFetch(data, screen_coordinates / TILE_SIZE, 0);
+
+    ivec2 tileCoordinate;
+    tileCoordinate.x = (int(currentPixel.r * 255.0) ) * TILE_SIZE.x + (screen_coordinates.x % TILE_SIZE.x);// - int(offset.x);
+    //tileCoordinate.y =(int(currentPixel.g * 255.0) ) * TILE_SIZE.y + (screen_coordinates.y % TILE_SIZE.y);// - int(offset.y);
+
+    vec4 tileColor = texelFetch(map, tileCoordinate, 0);
+
+    gl_FragColor = tileColor;
+}

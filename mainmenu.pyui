@@ -1,0 +1,148 @@
+[
+  {
+    "nodes" : [
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{0, 6}, {1024, 768}}",
+        "class" : "ImageView",
+        "attributes" : {
+          "frame" : "{{462, 334}, {100, 100}}",
+          "tint_color" : "RGBA(0.933333,1.000000,0.977778,1.000000)",
+          "class" : "ImageView",
+          "name" : "imageview1",
+          "uuid" : "8E021030-522D-4E71-964C-A35F3F5F064F"
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{23, 252}, {291, 194}}",
+        "class" : "Button",
+        "attributes" : {
+          "flex" : "WHLRTB",
+          "border_width" : 3,
+          "action" : "self.start",
+          "frame" : "{{472, 368}, {80, 32}}",
+          "title" : "start game",
+          "uuid" : "71643F76-22B6-461F-9490-E37B1A46940B",
+          "class" : "Button",
+          "corner_radius" : 3,
+          "font_bold" : true,
+          "name" : "button1",
+          "font_size" : 56
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{23, 68}, {291, 176}}",
+        "class" : "TableView",
+        "attributes" : {
+          "uuid" : "77D86451-8803-4A12-9369-D737BB3BFCCE",
+          "data_source_action" : "self.setWorld",
+          "background_color" : "RGBA(1.0, 1.0, 1.0, 1.0)",
+          "frame" : "{{412, 284}, {200, 200}}",
+          "data_source_items" : "",
+          "data_source_number_of_lines" : 1,
+          "data_source_delete_enabled" : false,
+          "data_source_font_size" : 18,
+          "row_height" : 44,
+          "class" : "TableView",
+          "name" : "worlds",
+          "flex" : "LRTB"
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{68, 6}, {300, 52}}",
+        "class" : "Label",
+        "attributes" : {
+          "border_width" : 0,
+          "name" : "worldl",
+          "frame" : "{{437, 368}, {150, 32}}",
+          "uuid" : "359AB860-1AD1-4A14-9450-F1E0A0053487",
+          "class" : "Label",
+          "alignment" : "center",
+          "text" : "worldname",
+          "corner_radius" : 0,
+          "font_size" : 18,
+          "font_name" : "<System>"
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{0, 0}, {60, 60}}",
+        "class" : "Button",
+        "attributes" : {
+          "action" : "self._close",
+          "image_name" : "iob:close_256",
+          "frame" : "{{472, 368}, {80, 32}}",
+          "title" : "exit",
+          "uuid" : "B767AE8E-6EDA-48BE-84CA-68B40DE9CF57",
+          "font_bold" : true,
+          "class" : "Button",
+          "font_size" : 26,
+          "name" : "exit"
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{322, 68}, {111, 92}}",
+        "class" : "Button",
+        "attributes" : {
+          "action" : "self.start_lan",
+          "frame" : "{{472, 368}, {80, 32}}",
+          "title" : "lan",
+          "uuid" : "63B4D8FF-688A-48CB-8E1C-8C1AB7922C42",
+          "class" : "Button",
+          "name" : "button2",
+          "font_size" : 15
+        },
+        "selected" : false
+      },
+      {
+        "nodes" : [
+
+        ],
+        "frame" : "{{336, 188}, {80, 108}}",
+        "class" : "Button",
+        "attributes" : {
+          "action" : "self.lan",
+          "frame" : "{{472, 368}, {80, 32}}",
+          "title" : "Button",
+          "uuid" : "F9800BCF-051C-4781-AF0D-563B8071B862",
+          "class" : "Button",
+          "name" : "button3",
+          "font_size" : 15
+        },
+        "selected" : true
+      }
+    ],
+    "frame" : "{{0, 0}, {1024, 768}}",
+    "class" : "View",
+    "attributes" : {
+      "name" : "",
+      "enabled" : true,
+      "border_color" : "RGBA(0.000000,0.000000,0.000000,1.000000)",
+      "background_color" : "RGBA(1.000000,1.000000,1.000000,1.000000)",
+      "tint_color" : "RGBA(0.000000,0.478000,1.000000,1.000000)",
+      "flex" : ""
+    },
+    "selected" : false
+  }
+]
